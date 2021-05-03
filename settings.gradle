@@ -1,0 +1,12 @@
+rootProject.name = 'Prueba-Mass-Global'
+
+include 'domain'
+include 'domain:usecases'
+include 'domain:models'
+
+include 'adapters'
+include 'adapters:HTTP'
+include 'adapters:HTTP:Controller'
+include 'adapters:HTTP:externalrequest'
+
+

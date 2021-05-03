@@ -1,0 +1,15 @@
+dependencies {
+
+    compile project(':adapters:HTTP:Controller')
+    compile project(':adapters:HTTP:externalrequest')
+
+}
+
+allprojects {
+
+    dependencies {
+        compile group: 'org.springframework', name: 'spring-context', version: '5.1.8.RELEASE'
+
+    }
+
+}

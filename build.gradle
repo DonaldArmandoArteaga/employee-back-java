@@ -1,0 +1,63 @@
+plugins {
+    id 'org.springframework.boot' version '2.2.2.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'java'
+}
+
+group = 'com.co.dominio.empleado'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    compile group: 'org.springframework', name: 'spring-webflux', version: '5.2.2.RELEASE'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+
+
+    compile project(':domain')
+    compile project(':domain:models')
+    compile project(':domain:usecases')
+
+    compile project(':adapters')
+    compile project(':adapters:HTTP')
+    compile project(':adapters:HTTP:Controller')
+    compile project(':adapters:HTTP:externalrequest')
+
+}
+
+allprojects {
+
+    apply plugin: "java"
+
+    group = 'co.com.portabilidad'
+    version = '0.0.1-SNAPSHOT'
+    sourceCompatibility = '11'
+
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+
+    dependencies {
+        compile group: 'org.springframework', name: 'spring-webflux', version: '5.2.2.RELEASE'
+        compile group: 'io.projectreactor', name: 'reactor-core', version: '3.3.1.RELEASE'
+        testCompile group: 'junit', name: 'junit', version: '4.12'
+        testCompile 'org.mockito:mockito-all:1.10.19'
+        compileOnly 'org.projectlombok:lombok:1.18.8'
+        annotationProcessor 'org.projectlombok:lombok:1.18.8'
+
+
+    }
+
+}
+
+
+test {
+    useJUnitPlatform()
+}
